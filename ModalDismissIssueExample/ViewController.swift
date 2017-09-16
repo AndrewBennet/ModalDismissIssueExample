@@ -28,7 +28,8 @@ class Page2VC: UIViewController {
     @IBAction func doneWasPressed(_ sender: Any) {
         // There are two ways of dismissing this modal navigation series.
         // 1. Ask the preseting VC to dismiss it (https://developer.apple.com/documentation/uikit/uiviewcontroller/1621505-dismiss)
-        // 2. Call dismiss on this VC, which should also work. Accoding to the docs:
+        // 2. Call dismiss on the navigation controller, which should also work accoding to the docs:
+                
                 /* If you call this method on the presented view controller itself,
                  UIKit asks the presenting view controller to handle the dismissal. */
         
