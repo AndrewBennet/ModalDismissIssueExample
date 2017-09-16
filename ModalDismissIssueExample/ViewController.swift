@@ -21,6 +21,11 @@ class Page1VC: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationItem.searchController?.isActive = false
+    }
 }
 
 class Page2VC: UIViewController {
