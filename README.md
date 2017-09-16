@@ -16,3 +16,7 @@ They both have problems!
         
 Type 1 produces a visual artifact: a duplicate VS is seen under the dismissed one
 Type 2 needs to be called twice in order to work! Presumably, the first call is dismissing the search controller?...
+
+-------
+
+Resolved: Adding `searchController.isActive = false` to `viewWillDisappear` resolves the issue
