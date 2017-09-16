@@ -82,10 +82,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akl-8y-yDH">
+                                <rect key="frame" x="318" y="617" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneWasPressed:" destination="cUK-9D-GcR" eventType="touchUpInside" id="JOA-Rt-0gp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oGl-0B-84g" firstAttribute="bottom" secondItem="Akl-8y-yDH" secondAttribute="bottom" constant="20" id="17F-aB-0Qq"/>
                             <constraint firstItem="jM1-oO-6cI" firstAttribute="leading" secondItem="oGl-0B-84g" secondAttribute="leading" constant="8" id="GCw-cS-Tbb"/>
+                            <constraint firstItem="oGl-0B-84g" firstAttribute="trailing" secondItem="Akl-8y-yDH" secondAttribute="trailing" constant="20" id="Omg-hq-H8Q"/>
                             <constraint firstItem="jM1-oO-6cI" firstAttribute="top" secondItem="oGl-0B-84g" secondAttribute="top" constant="40" id="b5b-CD-0Fd"/>
                             <constraint firstItem="oGl-0B-84g" firstAttribute="bottom" secondItem="jM1-oO-6cI" secondAttribute="bottom" constant="40" id="eWK-YA-YSi"/>
                             <constraint firstItem="oGl-0B-84g" firstAttribute="trailing" secondItem="jM1-oO-6cI" secondAttribute="trailing" constant="8" id="qSF-hB-tR2"/>

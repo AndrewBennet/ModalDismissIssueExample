@@ -9,11 +9,9 @@
 import UIKit
 
 class Page1VC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set up a search controller, add it to the navigation item.
-        // When the following block is commented out, the issue upon dismissing Page2VC is not present
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
@@ -21,6 +19,18 @@ class Page1VC: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.searchController?.isActive = false
+    }
+    
+    // this is not needed, but I wanted to make sure dismiss worked from Page1VC, too
+    
+    @IBAction func doneWasPressed(_ sender: Any) {
+        navigationController!.dismiss(animated: true)
+    }
+
 }
 
 class Page2VC: UIViewController {
@@ -38,12 +48,11 @@ class Page2VC: UIViewController {
         // They both have problems!
         
         // Type 1 produces a visual artifact: a duplicate VS is seen under the dismissed one
-        self.presentingViewController!.dismiss(animated: true)
+        // presentingViewController!.dismiss(animated: true)
         
         // Type 2 needs to be called twice in order to work! Presumably, the first call is dismissing
         // the search controller?...
-        // self.navigationController!.dismiss(animated: true)
-        
+        navigationController!.dismiss(animated: true)
     }
 }
 
