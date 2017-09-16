@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,134 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ModalDismissIssueExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZ4-SD-NEX">
+                                <rect key="frame" x="145" y="318.5" width="84" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="2wU-4g-HB5"/>
+                                </constraints>
+                                <state key="normal" title="Open Modal"/>
+                                <connections>
+                                    <segue destination="Fye-QX-KGS" kind="presentation" id="Zlq-1h-FhD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a small project to demonstrate a weird bug which occurs in iOS 11. Click Open Modal to show a modal view controller." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziu-I5-msE">
+                                <rect key="frame" x="8" y="38" width="359" height="240.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iZ4-SD-NEX" firstAttribute="top" secondItem="ziu-I5-msE" secondAttribute="bottom" constant="40" id="8WN-Fn-UfU"/>
+                            <constraint firstAttribute="trailing" secondItem="ziu-I5-msE" secondAttribute="trailing" constant="8" id="Mr7-DU-Krn"/>
+                            <constraint firstItem="iZ4-SD-NEX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T9r-rs-LEK"/>
+                            <constraint firstItem="ziu-I5-msE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b0x-xm-rkR"/>
+                            <constraint firstItem="ziu-I5-msE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="f5D-yD-Qek"/>
+                            <constraint firstItem="ziu-I5-msE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="kwU-eH-K6J"/>
+                            <constraint firstItem="iZ4-SD-NEX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mw7-zE-bvz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="101.59999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xzm-wn-134">
+            <objects>
+                <navigationController id="Fye-QX-KGS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e9l-xK-IQ2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cUK-9D-GcR" kind="relationship" relationship="rootViewController" id="IXg-4c-mZR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfI-e9-kGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="134"/>
+        </scene>
+        <!--Page 1-->
+        <scene sceneID="tM5-MO-jSR">
+            <objects>
+                <viewController id="cUK-9D-GcR" customClass="Page1VC" customModule="ModalDismissIssueExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X65-cl-LWZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM1-oO-6cI">
+                                <rect key="frame" x="8" y="104" width="359" height="523"/>
+                                <string key="text">The Search Controller in the navigation item above is somehow the culprit of this issue...  Type some text in it, then click Next.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jM1-oO-6cI" firstAttribute="leading" secondItem="oGl-0B-84g" secondAttribute="leading" constant="8" id="GCw-cS-Tbb"/>
+                            <constraint firstItem="jM1-oO-6cI" firstAttribute="top" secondItem="oGl-0B-84g" secondAttribute="top" constant="40" id="b5b-CD-0Fd"/>
+                            <constraint firstItem="oGl-0B-84g" firstAttribute="bottom" secondItem="jM1-oO-6cI" secondAttribute="bottom" constant="40" id="eWK-YA-YSi"/>
+                            <constraint firstItem="oGl-0B-84g" firstAttribute="trailing" secondItem="jM1-oO-6cI" secondAttribute="trailing" constant="8" id="qSF-hB-tR2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oGl-0B-84g"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Page 1" id="wKr-h9-NY6">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="fNP-1p-Mwc">
+                            <connections>
+                                <segue destination="G1a-N6-8JN" kind="show" id="m9B-b0-QUg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksl-2H-wfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1795" y="130"/>
+        </scene>
+        <!--Page 2-->
+        <scene sceneID="6Kr-MT-jSx">
+            <objects>
+                <viewController id="G1a-N6-8JN" customClass="Page2VC" customModule="ModalDismissIssueExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ebk-AE-0VK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUb-Dn-fCy">
+                                <rect key="frame" x="8" y="104" width="359" height="523"/>
+                                <string key="text">Now click Done, which dismisses the presented navigation controller. Watch what happens...  There is a visual artifact whereby a duplicate of this view is seen.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ju-V5-4Ae" firstAttribute="bottom" secondItem="xUb-Dn-fCy" secondAttribute="bottom" constant="40" id="0A9-HO-kct"/>
+                            <constraint firstItem="xUb-Dn-fCy" firstAttribute="leading" secondItem="0ju-V5-4Ae" secondAttribute="leading" constant="8" id="64X-cZ-7Mr"/>
+                            <constraint firstItem="xUb-Dn-fCy" firstAttribute="top" secondItem="0ju-V5-4Ae" secondAttribute="top" constant="40" id="QI1-p9-oOk"/>
+                            <constraint firstItem="0ju-V5-4Ae" firstAttribute="trailing" secondItem="xUb-Dn-fCy" secondAttribute="trailing" constant="8" id="yeR-gZ-2NC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0ju-V5-4Ae"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Page 2" id="9v8-UT-EnB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="I3x-0v-2c5">
+                            <connections>
+                                <action selector="doneWasPressed:" destination="G1a-N6-8JN" id="d12-h4-a6J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fdw-lo-icf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2593" y="130"/>
         </scene>
     </scenes>
 </document>
